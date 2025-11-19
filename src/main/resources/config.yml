@@ -1,0 +1,8 @@
+# Gui size, from 18-54, must be a multiple of 9. will need at least 2 rows to work
+gui-size: 54
+
+# Enables or disables the Lore Copy feature.
+lore-copy-enabled: true
+
+# Default lore copy state.
+default-lore-copy: false

@@ -1,0 +1,23 @@
+name: MassrenameGUI
+main: com.cyvertray.massrenamegui.Massrename
+version: 1.1
+author: cyvertray
+api-version: 1.21
+
+commands:
+  massrename:
+    description: opens the gui and lets players use it
+    usage: /<command> [reload]
+    permission: massrename.use
+    permission-message: "&cYᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴜsᴇ MᴀssʀᴇɴᴀᴍᴇGUI."
+
+permissions:
+  massrename.use:
+    description: Allows to use the /massrename command
+    default: op
+  massrename.reload:
+    description: Allows to reload the plugin config
+    default: op
+  massrename.lore:
+    description: Allows to toggle the Lore copy feature
+    default: op
