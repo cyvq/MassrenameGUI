@@ -17,6 +17,11 @@ Simply drag and drop an Item into the Input Slot, put the Items you want to rena
 Copy the Lore of an Item additionally to the name!
 Simply click the the Toggle Button in the GUI to enable/disable Lore duplication. (requires its own permission, see below)
 
+**New in Version 1.2:**
+
+Save your favorite Names and Lores as templates! Put them into the Input Slot and click the Save Button. 
+Open your templates in the Gui and click them to load them into the rename gui.
+
 ### Commands and Permissions
 
 As simple as the plugin itself are also its commands and permissions:
