@@ -1,4 +1,4 @@
-## Mass Renaming Plugin  **Spigot/Paper/Purpur/Bukkit 1.21.x** [![Modrinth](https://img.shields.io/modrinth/dt/massrenamegui?logo=modrinth)](https://modrinth.com/mod/massrenamegui)
+## Mass Renaming Plugin  **Spigot/Paper/Purpur/Bukkit 1.20.x - 1.21.x** [![Modrinth](https://img.shields.io/modrinth/dt/massrenamegui?logo=modrinth)](https://modrinth.com/mod/massrenamegui)
 
 This is a Plugin i made for the StarnixMC Minecraft Server.
 
