@@ -20,6 +20,8 @@ public class Massrename extends JavaPlugin {
         renameGUI = new RenameGUI();
         getServer().getPluginManager().registerEvents(renameGUI, this);
 
+        getServer().getPluginManager().registerEvents(SavedNamesGUI.getListener(), this);
+
         registerCommands();
 
         getLogger().info("MᴀssʀᴇɴᴀᴍᴇGUI ᴠ1.1 ᴇɴᴀʙʟᴇᴅ.");
@@ -36,7 +38,7 @@ public class Massrename extends JavaPlugin {
             cmd.setExecutor(new MassrenameCommand(this));
             cmd.setTabCompleter(new MassrenameCommand(this));
         } else {
-            getLogger().severe("Cᴏᴍᴍᴀɴᴅ 'masrename' ɪs ᴍɪssɪɴɢ ꜰʀᴏᴍ ᴘʟᴜɢɪɴ.ʏᴍʟ!");
+            getLogger().severe("Cᴏᴍᴍᴀɴᴅ 'massrename' ɪs ᴍɪssɪɴɢ ꜰʀᴏᴍ ᴘʟᴜɢɪɴ.ʏᴍʟ!");
         }
     }
 
