@@ -8,6 +8,9 @@ This Plugin does exactly that and nothing more.
 
 I was astonished to not find a simple Plugin like that already.
 
+_Compatibility with 1.20.x Servers exists if they are permissive to a higher api Version!
+Should work without any issues, as long as Java 21._
+
 ### Usage
 
 Simply drag and drop an Item into the Input Slot, put the Items you want to rename in the GUI above and, when you click the "Rename All" Button, the Items in the GUI will be renamed to whatever your Input Items Name is. Successfully tested with Legacy Colorcodes and HEX.
