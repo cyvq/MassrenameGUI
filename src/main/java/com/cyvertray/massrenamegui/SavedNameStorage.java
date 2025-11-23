@@ -13,12 +13,11 @@ public class SavedNameStorage {
 
     private static final int MAX_ENTRIES = 45;
     private static final Pattern HEX_PATTERN = Pattern.compile("&\\{#([A-Fa-f0-9]{6})\\}");
-    private static SavedNameStorage instance;
 
     private final Massrename plugin;
     private final File playerDataFolder;
 //folder creation and naming of save files
-    private SavedNameStorage(Massrename plugin) {
+    public SavedNameStorage(Massrename plugin) {
         this.plugin = plugin;
         this.playerDataFolder = new File(plugin.getDataFolder(), "playerdata");
         if (!playerDataFolder.exists()) {
@@ -26,11 +25,7 @@ public class SavedNameStorage {
         }
     }
 
-    public static synchronized SavedNameStorage getInstance() {
-        if (instance == null) {
-            instance = new SavedNameStorage(Massrename.getInstance());
-        }
-        return instance;
+    public void saveData() {
     }
 
     private File getPlayerFile(Player player) {
