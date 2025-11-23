@@ -8,12 +8,15 @@ public class Massrename extends JavaPlugin {
     private static Massrename instance;
 
     private RenameGUI renameGUI;
+    private SavedNameStorage savedNameStorage;
 
     @Override
     public void onEnable() {
         instance = this;
 
         saveDefaultConfig();
+
+        this.savedNameStorage = new SavedNameStorage(this);
 
         // gui listener
         renameGUI = new RenameGUI();
@@ -28,6 +31,9 @@ public class Massrename extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        if (this.savedNameStorage != null) {
+            this.savedNameStorage.saveData();
+        }
         getLogger().info("MassrenameGUI v1.2 disabled.");
         instance = null;
     }
@@ -51,9 +57,13 @@ public class Massrename extends JavaPlugin {
         return renameGUI;
     }
 
+    public SavedNameStorage getSavedNameStorage() {
+        return savedNameStorage;
+    }
+
     //Config reload
     public void reloadPluginConfig() {
         reloadConfig();
-        getLogger().info("&2Configuration reloaded.");
+        getLogger().info(ChatColor.translateAlternateColorCodes('&', "&2Configuration reloaded."));
     }
 }
