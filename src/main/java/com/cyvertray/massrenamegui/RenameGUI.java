@@ -228,7 +228,7 @@ public class RenameGUI implements Listener {
                 // save name
                 else if (raw == saveNameSlot) {
                     if (click == ClickType.LEFT) {
-                        new SavedNamesGUI(player).open();
+                        SavedNamesGUI.getListener().open(player);
                     } else if (click == ClickType.RIGHT) {
                         ItemStack stored = inputItems.get(uuid);
                         if (stored == null || !stored.hasItemMeta() || !stored.getItemMeta().hasDisplayName()) {
@@ -238,7 +238,7 @@ public class RenameGUI implements Listener {
                             List<String> lore = (copyLore && stored.getItemMeta().hasLore())
                                     ? new ArrayList<>(stored.getItemMeta().getLore())
                                     : null;
-                            boolean saved = SavedNameStorage.getInstance().saveEntry(player, stored.getItemMeta().getDisplayName(), lore);
+                            boolean saved = Massrename.getInstance().getSavedNameStorage().saveEntry(player, stored.getItemMeta().getDisplayName(), lore);
                             if (!saved) player.sendMessage(colorize("&cYᴏᴜʀ sᴀᴠᴇᴅ ɴᴀᴍᴇ ʟɪsᴛ ɪs ꜰᴜʟʟ."));
                             else player.sendMessage(colorize("&2Sᴀᴠᴇᴅ!"));
                         }
