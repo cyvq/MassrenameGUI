@@ -2,6 +2,7 @@ package com.cyvertray.massrenamegui;
 
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+import net.md_5.bungee.api.ChatColor;
 
 public class Massrename extends JavaPlugin {
 
@@ -26,7 +27,7 @@ public class Massrename extends JavaPlugin {
 
         registerCommands();
 
-        getLogger().info("MassrenameGUI v1.2 enabled.");
+        getLogger().info("MassrenameGUI v1.2.1 enabled.");
     }
 
     @Override
@@ -34,7 +35,7 @@ public class Massrename extends JavaPlugin {
         if (this.savedNameStorage != null) {
             this.savedNameStorage.saveData();
         }
-        getLogger().info("MassrenameGUI v1.2 disabled.");
+        getLogger().info("MassrenameGUI v1.2.1 disabled.");
         instance = null;
     }
 //comand register
