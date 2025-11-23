@@ -7,10 +7,12 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class SavedNameStorage {
 
     private static final int MAX_ENTRIES = 45;
+    private static final Pattern HEX_PATTERN = Pattern.compile("&\\{#([A-Fa-f0-9]{6})\\}");
     private static SavedNameStorage instance;
 
     private final Massrename plugin;
@@ -173,6 +175,6 @@ public class SavedNameStorage {
 //color support
     private String normalizeHexForms(String input) {
         if (input == null) return null;
-        return input.replaceAll("&\\{#([A-Fa-f0-9]{6})\\}", "#$1");
+        return HEX_PATTERN.matcher(input).replaceAll("#$1");
     }
 }
