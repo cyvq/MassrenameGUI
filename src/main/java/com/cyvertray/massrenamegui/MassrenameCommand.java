@@ -19,33 +19,32 @@ public class MassrenameCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
+    //reload config perm
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
+            if (sender.hasPermission("massrename.reload")) {
+                plugin.reloadPluginConfig();
+                sender.sendMessage(ChatColor.GREEN + "MᴀssʀᴇɴᴀᴍᴇGUI ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʀᴇʟᴏᴀᴅᴇᴅ.");
+            } else {
+                sender.sendMessage(ChatColor.RED + "Yᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ʀᴇʟᴏᴀᴅ ᴛʜᴇ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ.");
+            }
+            return true;
+        }
 
         if (!(sender instanceof Player player)) {
-            sender.sendMessage("Oɴʟʏ ᴘʟᴀʏᴇʀs ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.");
+            sender.sendMessage(ChatColor.RED + "Oɴʟʏ ᴘʟᴀʏᴇʀs ᴄᴀɴ ᴜsᴇ ᴛʜᴇ GUI.");
             return true;
         }
 
-        // /massrename reload
-        if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
-            if (!player.hasPermission("massrename.reload")) {
-                player.sendMessage("§cYᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ʀᴇʟᴏᴀᴅ ᴛʜᴇ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ.");
+        //massrename perms
+        if (args.length == 0) {
+            if (!player.hasPermission("massrename.use")) {
+                player.sendMessage(ChatColor.RED + "Yᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴜsᴇ MᴀssʀᴇɴᴀᴍᴇGUI.");
                 return true;
             }
-
-            plugin.reloadPluginConfig();
-            player.sendMessage("§2MᴀssʀᴇɴᴀᴍᴇGUI ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʀᴇʟᴏᴀᴅᴇᴅ.");
+            plugin.getRenameGUI().open(player);
             return true;
         }
-
-        // /massrename open GUI perms
-        if (!player.hasPermission("massrename.use")) {
-            player.sendMessage("§cYᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴜsᴇ MᴀssʀᴇɴᴀᴍᴇGUI.");
-            return true;
-        }
-
-        plugin.getRenameGUI().open(player);
-
 
         return true;
     }
