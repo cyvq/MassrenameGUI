@@ -14,7 +14,6 @@ public class Massrename extends JavaPlugin {
         instance = this;
 
         saveDefaultConfig();
-        reloadConfig();
 
         // gui listener
         renameGUI = new RenameGUI();
@@ -30,13 +29,15 @@ public class Massrename extends JavaPlugin {
     @Override
     public void onDisable() {
         getLogger().info("MᴀssʀᴇɴᴀᴍᴇGUI ᴠ1.1 ᴅɪsᴀʙʟᴇᴅ.");
+        instance = null;
     }
-
+//comand register
     private void registerCommands() {
         PluginCommand cmd = getCommand("massrename");
         if (cmd != null) {
-            cmd.setExecutor(new MassrenameCommand(this));
-            cmd.setTabCompleter(new MassrenameCommand(this));
+            MassrenameCommand massRenameCmd = new MassrenameCommand(this);
+            cmd.setExecutor(massRenameCmd);
+            cmd.setTabCompleter(massRenameCmd);
         } else {
             getLogger().severe("Cᴏᴍᴍᴀɴᴅ 'massrename' ɪs ᴍɪssɪɴɢ ꜰʀᴏᴍ ᴘʟᴜɢɪɴ.ʏᴍʟ!");
         }
@@ -53,6 +54,6 @@ public class Massrename extends JavaPlugin {
     //Config reload
     public void reloadPluginConfig() {
         reloadConfig();
-        getLogger().info("&2MᴀssʀᴇɴᴀᴍᴇGUI ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʀᴇʟᴏᴀᴅᴇᴅ.");
+        getLogger().info("&2ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʀᴇʟᴏᴀᴅᴇᴅ.");
     }
 }
