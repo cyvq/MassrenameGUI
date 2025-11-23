@@ -35,7 +35,7 @@ public class SavedNamesGUI implements Listener {
     private ItemStack cachedBottomFiller;
     private ItemStack cachedBackButton;
 
-    private static final SavedNameStorage STORAGE = SavedNameStorage.getInstance();
+    private static final SavedNameStorage STORAGE = Massrename.getInstance().getSavedNameStorage();
     private static final SavedNamesGUI LISTENER_INSTANCE = new SavedNamesGUI();
 
     private SavedNamesGUI() {
